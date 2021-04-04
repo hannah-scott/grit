@@ -310,7 +310,7 @@ func (n *Node) GetByAlias(alias string) *Node {
 // validateNewLink creates deep copies of the nodes' graphs, connects the copied
 // nodes, and checks if the resulting graph is a valid multitree.
 func validateNewLink(origin, dest *Node) error {
-	if origin.ID == 0 || dest.ID == 0 {
+	if origin.ID == 0 && dest.ID == 0 {
 		panic("link endpoints must have IDs")
 	}
 	if origin.HasChild(dest) != dest.HasParent(origin) {

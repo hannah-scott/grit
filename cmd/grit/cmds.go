@@ -407,7 +407,7 @@ func cmdImport(cmd *cli.Cmd) {
 			var id int64
 			var err error
 			if *makeRoot {
-				id, err = a.AddTree(root, 0)
+				id, err = a.AddTree(root, int64(0))
 			} else {
 				id, err = a.AddTree(root, *predecessor)
 			}

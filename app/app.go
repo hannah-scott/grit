@@ -373,7 +373,7 @@ func (a *App) selectorToID(selector interface{}) (int64, error) {
 	case string:
 		return a.stringSelectorToID(value)
 	case int64:
-		if value < 1 {
+		if value < 0 {
 			return 0, fmt.Errorf("invalid selector")
 		}
 		return value, nil

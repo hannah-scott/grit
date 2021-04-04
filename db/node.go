@@ -215,6 +215,8 @@ func createTree(tx *sql.Tx, node *multitree.Node, parentID int64) (int64, error)
 		parents := current.Parents()
 		if len(parents) > 0 {
 			pid = parents[0].ID
+		} else {
+			pid = parentID
 		}
 		id, err := createNode(tx, current.Name, pid)
 		if err != nil {
